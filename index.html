@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>L.A Electrical Inspection Report Builder</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="app.css?v=final-v2" />
+</head>
+<body>
+  <noscript>This app requires JavaScript to run the inspection form and generate reports.</noscript>
+
+  <div id="app" class="app-shell">
+    <header class="app-header">
+      <img class="interface-logo" src="LAELECTRICAL-LOGO-2026-REBRAND-HORIZONTAL.png" alt="L.A Electrical Connections" />
+      <button class="ghost-button" id="settingsButton" type="button">Settings</button>
+    </header>
+
+    <section class="hero-card">
+      <p class="eyebrow">Residential Tenancies Regulations 2021</p>
+      <h1>Electrical Safety Check</h1>
+      <p>Run the inspection, capture notes and photos, sign off, then export a branded A4 PDF report.</p>
+      <div class="status-strip">
+        <div><strong id="autosaveStatus">Saved</strong><span>Local autosave</span></div>
+        <div><strong id="completionStatus">0%</strong><span>Report complete</span></div>
+      </div>
+    </section>
+
+    <nav class="step-nav" id="stepNav" aria-label="Inspection sections"></nav>
+    <main id="formRoot"></main>
+
+    <div class="bottom-actions">
+      <button class="secondary-button" id="prevStep" type="button">Back</button>
+      <button class="secondary-button" id="saveDraft" type="button">Save Draft</button>
+      <button class="primary-button" id="nextStep" type="button">Next</button>
+    </div>
+  </div>
+
+  <aside class="drawer" id="settingsDrawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <div>
+          <p class="eyebrow">App Settings</p>
+          <h2>Business defaults</h2>
+          <p class="warn">Version final-v2. Built for Android Chrome, GitHub Pages, and fixed A4 PDF export.</p>
+        </div>
+        <button class="icon-button" id="closeSettings" type="button" aria-label="Close settings">×</button>
+      </div>
+      <div class="form-grid single">
+        <label>Business name<input data-path="settings.businessName" type="text" /></label>
+        <label>REC number<input data-path="settings.recNumber" type="text" /></label>
+        <label>ACN / ABN number<input data-path="settings.acnNumber" type="text" placeholder="Optional" /></label>
+        <label>Electrician name<input data-path="cert.electricianName" type="text" /></label>
+        <label>Licence / registration number<input data-path="cert.licenceNumber" type="text" /></label>
+        <label>Contact phone<input data-path="settings.phone" type="tel" /></label>
+        <label>Email<input data-path="settings.email" type="email" /></label>
+        <label>Website<input data-path="settings.website" type="text" /></label>
+        <label>Standard limitations wording<textarea data-path="limitations" rows="4"></textarea></label>
+      </div>
+      <button class="secondary-button" id="clearLocalData" type="button">Start New Report / Clear Current Inspection</button>
+      <button class="danger-button" id="clearEverything" type="button">Clear Local App Data + Caches</button>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=final-v2"></script>
+</body>
+</html>
